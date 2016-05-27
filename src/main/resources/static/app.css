@@ -1,0 +1,5 @@
+.tree img {
+    height: 140px;
+    padding: 10px 20px 10px 0;
+    image-rendering: crisp-edges;
+}

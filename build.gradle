@@ -28,7 +28,14 @@ springBoot {
     agent = file('/opt/newrelic/newrelic.jar')
 }
 
+bootRun {
+    addResources = true
+}
+
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.hibernate:hibernate-core:5.1.0.Final'
+    compile 'com.h2database:h2:1.4.191'
     testCompile 'junit:junit'
 }
