@@ -3,6 +3,9 @@
 .idea/
 build/
 gradle/
+gradlew
+gradlew.bat
 
 # General
 .env
+newrelic_agent.log
