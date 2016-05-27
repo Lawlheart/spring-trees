@@ -22,6 +22,12 @@ repositories {
     mavenCentral()
 }
 
+
+springBoot {
+    mainClass = 'com.lawlietblack.springtrees.AppConfig'
+    agent = file('/opt/newrelic/newrelic.jar')
+}
+
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     testCompile 'junit:junit'
