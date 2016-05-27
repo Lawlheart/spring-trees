@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  build/libs/springtrees-1.0-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -javaagent:/opt/newrelic/newrelic.jar -jar  build/libs/springtrees-1.0-SNAPSHOT.jar

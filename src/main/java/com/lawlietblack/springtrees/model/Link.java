@@ -5,14 +5,14 @@ public class Link {
     private int treeId;
     private int person1Id;
     private int person2Id;
-    private int relatinshipType;
+    private int relationshipType;
 
-    public Link(int id, int treeId, int person1Id, int person2Id, int relatinshipType) {
+    public Link(int id, int treeId, int person1Id, int person2Id, int relationshipType) {
         this.id = id;
         this.treeId = treeId;
         this.person1Id = person1Id;
         this.person2Id = person2Id;
-        this.relatinshipType = relatinshipType;
+        this.relationshipType = relationshipType;
     }
 
     public int getId() {
@@ -40,11 +40,11 @@ public class Link {
     }
 
     public int getRelatinshipType() {
-        return relatinshipType;
+        return relationshipType;
     }
 
     public void setRelatinshipType(int relatinshipType) {
-        this.relatinshipType = relatinshipType;
+        this.relationshipType = relatinshipType;
     }
 
     public int getPerson2Id() {
