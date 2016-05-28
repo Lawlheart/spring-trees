@@ -31,7 +31,7 @@ public class TreeController {
         return "home";
     }
 
-    @RequestMapping("/trees/{id}")
+    @RequestMapping("/display/{id}")
     public String treeDetail(@PathVariable int id, ModelMap modelMap) {
         Tree tree = treeRepository.findOne(id);
         modelMap.put("tree", tree);

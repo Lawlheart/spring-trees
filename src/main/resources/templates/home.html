@@ -35,7 +35,7 @@
     <pre th:text="${trees}"></pre>
     <div class="trees row">
         <div class="col s12 m6 l4 tree" th:each="tree : ${trees}">
-            <a th:href="@{'/trees/' + ${tree.id}}">
+            <a th:href="@{'/display/' + ${tree.id}}">
                 <div class="card-panel teal white-text">
                     <img th:src="@{/img/genealogy.png}" class="left" alt="genealogy icon from https://icons8.com"/>
                     <h3 th:text="${tree.name}"></h3>

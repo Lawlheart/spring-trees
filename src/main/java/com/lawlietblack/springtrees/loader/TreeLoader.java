@@ -45,19 +45,39 @@ public class TreeLoader implements ApplicationListener<ContextRefreshedEvent> {
         simpsons.setPeople(Arrays.asList(homer, marge, bart, lisa, maggie));
 
         // Add Links
-        Link link1 = new LinkBuilder(homer);
+        Link link1 = new Link.LinkBuilder(marge).isMarriedTo(homer).build();
+        Link link2 = new Link.LinkBuilder(marge).isParentOf(bart).build();
+        Link link3 = new Link.LinkBuilder(marge).isParentOf(lisa).build();
+        Link link4 = new Link.LinkBuilder(marge).isParentOf(maggie).build();
+        Link link5 = new Link.LinkBuilder(homer).isParentOf(bart).build();
+        Link link6 = new Link.LinkBuilder(homer).isParentOf(lisa).build();
+        Link link7 = new Link.LinkBuilder(homer).isParentOf(maggie).build();
+        simpsons.setLinks(Arrays.asList(link1, link2, link3, link4, link5, link6, link7));
 
+        // Save to DB
         personRepository.save(Arrays.asList(homer, marge, bart, lisa, maggie));
+        linkRepository.save(Arrays.asList(link1, link2, link3, link4, link5, link6, link7));
         treeRepository.save(simpsons);
 
+        // Create Tree;
         Tree flanders = new Tree();
         flanders.setName("The Flanders");
         flanders.setCreatorId(1337);
+
+        // Add People
         Person ned = new Person.PersonBuilder("Ned", "Flanders").withGender("Male").build();
         Person rodd = new Person.PersonBuilder("Rodd", "Flanders").withGender("Male").build();
         Person todd = new Person.PersonBuilder("Todd", "Flanders").withGender("Male").build();
-        personRepository.save(Arrays.asList(ned, rodd, todd));
         flanders.setPeople(Arrays.asList(ned, rodd, todd));
+
+        // Add Links
+        Link link8 = new Link.LinkBuilder(ned).isParentOf(rodd).build();
+        Link link9 = new Link.LinkBuilder(ned).isParentOf(todd).build();
+        flanders.setLinks(Arrays.asList(link8, link9));
+
+        // Save to DB
+        personRepository.save(Arrays.asList(ned, rodd, todd));
+        linkRepository.save(Arrays.asList(link8, link9));
         treeRepository.save(flanders);
     }
 }

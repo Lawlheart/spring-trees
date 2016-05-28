@@ -1,24 +1,12 @@
 package com.lawlietblack.springtrees.model;
 
-import com.lawlietblack.springtrees.repository.RelationshipRepository;
-import com.lawlietblack.springtrees.repository.RoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 
 @Entity
 public class Link {
-    @Autowired
-    private static RelationshipRepository relationshipRepository;
-    @Autowired
-    private static RoleRepository roleRepository;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @OneToOne
-    private Tree tree;
 
     @ManyToOne
     private Person person1;
@@ -26,19 +14,30 @@ public class Link {
     @ManyToOne
     private Person person2;
 
-    @ManyToOne
-    private Relationship relationship;
-
-    @ManyToOne
-    private Role person1Role;
-
-    @ManyToOne
-    private Role person2Role;
+    private String relationship;
+    private String person1Role;
+    private String person2Role;
 
     public Link() {}
 
-    public Link(LinkBuilder linkBuilder) {
+    public Link(LinkBuilder builder) {
+        this.person1 = builder.person1;
+        this.person2 = builder.person2;
+        this.relationship = builder.relationship;
+        this.person1Role = builder.person1Role;
+        this.person2Role = builder.person2Role;
+    }
 
+    @Override
+    public String toString() {
+        return "Link{" +
+                "id=" + id +
+                ", person1=" + person1 +
+                ", person2=" + person2 +
+                ", relationship='" + relationship + '\'' +
+                ", person1Role='" + person1Role + '\'' +
+                ", person2Role='" + person2Role + '\'' +
+                '}';
     }
 
     public Integer getId() {
@@ -47,14 +46,6 @@ public class Link {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Tree getTree() {
-        return tree;
-    }
-
-    public void setTree(Tree tree) {
-        this.tree = tree;
     }
 
     public Person getPerson1() {
@@ -73,47 +64,78 @@ public class Link {
         this.person2 = person2;
     }
 
-    public Relationship getRelationship() {
+    public String getRelationship() {
         return relationship;
     }
 
-    public void setRelationship(Relationship relationship) {
+    public void setRelationship(String relationship) {
         this.relationship = relationship;
     }
 
-    public Role getPerson1Role() {
+    public String getPerson1Role() {
         return person1Role;
     }
 
-    public void setPerson1Role(Role person1Role) {
+    public void setPerson1Role(String person1Role) {
         this.person1Role = person1Role;
     }
 
-    public Role getPerson2Role() {
+    public String getPerson2Role() {
         return person2Role;
     }
 
-    public void setPerson2Role(Role person2Role) {
+    public void setPerson2Role(String person2Role) {
         this.person2Role = person2Role;
     }
 
     public static class LinkBuilder {
-        private Tree tree;
         private Person person1;
         private Person person2;
-        private Relationship relationship;
-        private Role person1Role;
-        private Role person2Role;
+        private String relationship;
+        private String person1Role;
+        private String person2Role;
 
-        public LinkBuilder(Tree tree, Person person) {
-            this.tree = tree;
+        public LinkBuilder(Person person) {
             this.person1 = person;
         }
 
         public LinkBuilder isParentOf(Person person) {
             this.person2 = person;
-            this.relationship = relationshipRepository.findOne(2);
-            this.person1Role = roleRepository.findOne()
+            this.relationship = "parent";
+            this.person1Role = person1.getGender().equals("Female") ? "Mother" : "Father";
+            this.person2Role = person2.getGender().equals("Female") ? "Daughter": "Son";
+            return this;
+        }
+
+        public LinkBuilder isPartnerOf(Person person) {
+            this.person2 = person;
+            this.relationship = "partner";
+            this.person1Role = "Partner";
+            this.person2Role = "Partner";
+
+            return this;
+        }
+
+        public LinkBuilder isMarriedTo(Person person) {
+            this.person2 = person;
+            this.relationship = "married";
+            this.person1Role = person1.getGender().equals("Female") ? "Wife" : "Husband";
+            this.person2Role = person2.getGender().equals("Female") ? "Wife" : "Husband";
+
+            return this;
+        }
+
+        public LinkBuilder isSiblingOf(Person person) {
+            this.person2 = person;
+            this.relationship = "sibling";
+            this.person1Role = person1.getGender().equals("Female") ? "Sister" : "Brother";
+            this.person2Role = person2.getGender().equals("Female") ? "Sister" : "Brother";
+
+            return this;
+        }
+
+        public Link build() {
+            return new Link(this);
         }
     }
 }

@@ -16,6 +16,7 @@ public class Tree {
     private List<Person> people = new ArrayList<>();
 
     @OneToMany
+    @JoinTable(name = "tree_links")
     private List<Link> links = new ArrayList<>();
 
     public Tree() {}

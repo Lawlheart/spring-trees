@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--/*@thymesVar id="tree" type="com.lawlietblack.springtrees.model.Tree"*/-->
+<!--/*@thymesVar id="person" type="com.lawlietblack.springtrees.model.Person"*/-->
+<!--/*@thymesVar id="link" type="com.lawlietblack.springtrees.model.Link"*/-->
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -32,8 +34,19 @@
         </nav>
     </div>
 
+    <h1 th:text="${tree.name}" class="center-align teal-text"></h1>
+    <div class="row members">
+        <div th:each="person : ${tree.people}" class="col s12 m4 l3 member">
+            <div class="card-panel teal white-text">
+                <h4 th:text="${person.firstName + ' ' + person.lastName}"></h4>
+                <p th:each="link : ${tree.links}"
+                   th:text="(${link.getPerson1().equals(person)}) ? ${link.person1Role} + ' of ' + ${link.person2.firstName} :  ((${link.getPerson2().equals(person)}) ? ${link.person2Role} + ' of ' + ${link.person1.firstName}: '')"></p>
 
-    <h1 th:text="${tree.name}"></h1>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 </html>
