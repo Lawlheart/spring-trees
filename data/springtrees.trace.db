@@ -49,8 +49,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
 	at org.hibernate.boot.MetadataSources.buildMetadata(MetadataSources.java:179)
-	at com.lawlietblack.springtrees.AppConfig.buildSessionFactory(AppConfig.java:19)
-	at com.lawlietblack.springtrees.AppConfig.<clinit>(AppConfig.java:14)
+	at AppConfig.buildSessionFactory(AppConfig.java:19)
+	at AppConfig.<clinit>(AppConfig.java:14)
 Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Kenneth/Coding/IdeaProjects/SpringTrees/data/springtrees.mv.db [1.4.191/7]" [50000-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 51 more
@@ -110,8 +110,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
 	at org.hibernate.boot.MetadataSources.buildMetadata(MetadataSources.java:179)
-	at com.lawlietblack.springtrees.AppConfig.buildSessionFactory(AppConfig.java:19)
-	at com.lawlietblack.springtrees.AppConfig.<clinit>(AppConfig.java:14)
+	at AppConfig.buildSessionFactory(AppConfig.java:19)
+	at AppConfig.<clinit>(AppConfig.java:14)
 Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Kenneth/Coding/IdeaProjects/SpringTrees/data/springtrees.mv.db [1.4.191/7]" [50000-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 51 more
@@ -171,8 +171,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
 	at org.hibernate.boot.MetadataSources.buildMetadata(MetadataSources.java:179)
-	at com.lawlietblack.springtrees.AppConfig.buildSessionFactory(AppConfig.java:19)
-	at com.lawlietblack.springtrees.AppConfig.<clinit>(AppConfig.java:14)
+	at AppConfig.buildSessionFactory(AppConfig.java:19)
+	at AppConfig.<clinit>(AppConfig.java:14)
 Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Kenneth/Coding/IdeaProjects/SpringTrees/data/springtrees.mv.db [1.4.191/7]" [50000-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 51 more
@@ -232,8 +232,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
 	at org.hibernate.boot.MetadataSources.buildMetadata(MetadataSources.java:179)
-	at com.lawlietblack.springtrees.AppConfig.buildSessionFactory(AppConfig.java:19)
-	at com.lawlietblack.springtrees.AppConfig.<clinit>(AppConfig.java:14)
+	at AppConfig.buildSessionFactory(AppConfig.java:19)
+	at AppConfig.<clinit>(AppConfig.java:14)
 Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Kenneth/Coding/IdeaProjects/SpringTrees/data/springtrees.mv.db [1.4.191/7]" [50000-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 51 more
@@ -293,8 +293,8 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
 	at org.hibernate.boot.MetadataSources.buildMetadata(MetadataSources.java:179)
-	at com.lawlietblack.springtrees.AppConfig.buildSessionFactory(AppConfig.java:19)
-	at com.lawlietblack.springtrees.AppConfig.<clinit>(AppConfig.java:14)
+	at AppConfig.buildSessionFactory(AppConfig.java:19)
+	at AppConfig.<clinit>(AppConfig.java:14)
 Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Kenneth/Coding/IdeaProjects/SpringTrees/data/springtrees.mv.db [1.4.191/7]" [50000-191]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 51 more

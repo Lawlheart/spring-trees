@@ -1,9 +1,9 @@
 group 'com.lawlietblack'
 version '1.0-SNAPSHOT'
 
-task stage {
-    dependsOn 'build'
-}
+//task stage {
+//    dependsOn 'build'
+//}
 
 buildscript {
     repositories {
@@ -23,19 +23,21 @@ repositories {
 }
 
 
-springBoot {
-    mainClass = 'com.lawlietblack.springtrees.AppConfig'
-    agent = file('/opt/newrelic/newrelic.jar')
-}
-
-bootRun {
-    addResources = true
-}
+//springBoot {
+//    mainClass = 'com.lawlietblack.springtrees.AppConfig'
+//    agent = file('/opt/newrelic/newrelic.jar')
+//}
+//
+//bootRun {
+//    addResources = true
+//}
 
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-devtools'
-    compile 'org.hibernate:hibernate-core:5.1.0.Final'
     compile 'com.h2database:h2:1.4.191'
-    testCompile 'junit:junit'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

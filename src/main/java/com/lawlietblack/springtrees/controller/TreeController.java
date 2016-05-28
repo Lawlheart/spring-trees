@@ -8,7 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,24 +16,25 @@ public class TreeController {
     private static List<Tree> allTrees = new ArrayList<>();
 
     public TreeController() {
-        Tree simpsons = new Tree.TreeBuilder("The Simpsons")
-                .addPerson(new Person.PersonBuilder("Homer", "Simpson").withGender("Male")
-                        .withDateOfBirth(LocalDate.of(1955, 5, 13)).build())
-                .addPerson(new Person.PersonBuilder("Marge", "Simpson").withGender("Female")
-                        .withDateOfBirth(LocalDate.of(1955, 3, 19)).build())
-                .addLink(new Link.LinkBuilder(1, 2).forTreeId(0).withRelationship("married").build()
-                ).build();
-        Tree flanders = new Tree.TreeBuilder("The Flanders")
-                .addPerson(new Person.PersonBuilder("Ned", "Flanders").withGender("Male")
-                        .withDateOfBirth(LocalDate.of(1935, 12, 13)).build())
-                .addPerson(new Person.PersonBuilder("Rod", "Flanders").withGender("Male")
-                        .withDateOfBirth(LocalDate.of(1975, 5, 12)).build())
-                .addLink(new Link.LinkBuilder(3, 4).forTreeId(1).withRelationship("parent").build()
-                ).build();
 
+//        Person homer = new Person.PersonBuilder("Homer", "Simpson").withGender("Male").build();
+//        Person marge = new Person.PersonBuilder("Marge", "Simpson").withGender("Female").build();
+//        Link link1 = new Link.LinkBuilder(1, 2).forTreeId(0).withRelationship("married").build();
+//
+//
+//        Person ned = new Person.PersonBuilder("Ned", "Flanders").withGender("Male").build();
+//        Person rodd = new Person.PersonBuilder("Rod", "Flanders").withGender("Male").build();
+//        Link link2 = new Link.LinkBuilder(3, 4).forTreeId(1).withRelationship("parent").build();
+//
+//        Tree simpsons = new Tree.TreeBuilder("The Simpsons")
+//                .addPerson(homer).addPerson(marge).addLink(link1).build();
+//
+//        Tree flanders = new Tree.TreeBuilder("The Flanders")
+//                .addPerson(ned).addPerson(rodd).addLink(link2).build();
+//
+//        allTrees.add(simpsons);
+//        allTrees.add(flanders);
 
-        allTrees.add(simpsons);
-        allTrees.add(flanders);
     }
 
 

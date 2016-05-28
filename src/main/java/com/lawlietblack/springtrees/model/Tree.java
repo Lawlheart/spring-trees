@@ -1,25 +1,26 @@
 package com.lawlietblack.springtrees.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Tree {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int creatorId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private Integer creatorId;
     private String name;
+
+    @OneToMany
     private List<Person> people = new ArrayList<>();
+
+    @OneToMany
     private List<Link> links = new ArrayList<>();
 
-    public Tree() {};
+    public Tree() {}
 
-    public Tree(int id, int creatorId, String name, List<Person> people, List<Link> links) {
+    public Tree(Integer id, Integer creatorId, String name, List<Person> people, List<Link> links) {
         this.id = id;
         this.creatorId = creatorId;
         this.name = name;
@@ -45,19 +46,19 @@ public class Tree {
                 '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getCreatorId() {
+    public Integer getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(int creatorId) {
+    public void setCreatorId(Integer creatorId) {
         this.creatorId = creatorId;
     }
 
