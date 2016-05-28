@@ -28,4 +28,59 @@ public class Link {
 
     public Link() {}
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Tree getTree() {
+        return tree;
+    }
+
+    public void setTree(Tree tree) {
+        this.tree = tree;
+    }
+
+    public Person getPerson1() {
+        return person1;
+    }
+
+    public void setPerson1(Person person1) {
+        this.person1 = person1;
+    }
+
+    public Person getPerson2() {
+        return person2;
+    }
+
+    public void setPerson2(Person person2) {
+        this.person2 = person2;
+    }
+
+    public Relationship getRelationship() {
+        return relationship;
+    }
+
+    public void setRelationship(Relationship relationship) {
+        this.relationship = relationship;
+    }
+
+    public Role getPerson1Role() {
+        return person1Role;
+    }
+
+    public void setPerson1Role(Role person1Role) {
+        this.person1Role = person1Role;
+    }
+
+    public Role getPerson2Role() {
+        return person2Role;
+    }
+
+    public void setPerson2Role(Role person2Role) {
+        this.person2Role = person2Role;
+    }
 }
