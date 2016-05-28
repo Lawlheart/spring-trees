@@ -1,9 +1,18 @@
 package com.lawlietblack.springtrees.model;
 
+import com.lawlietblack.springtrees.repository.RelationshipRepository;
+import com.lawlietblack.springtrees.repository.RoleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
 public class Link {
+    @Autowired
+    private static RelationshipRepository relationshipRepository;
+    @Autowired
+    private static RoleRepository roleRepository;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -27,6 +36,10 @@ public class Link {
     private Role person2Role;
 
     public Link() {}
+
+    public Link(LinkBuilder linkBuilder) {
+
+    }
 
     public Integer getId() {
         return id;
@@ -82,5 +95,25 @@ public class Link {
 
     public void setPerson2Role(Role person2Role) {
         this.person2Role = person2Role;
+    }
+
+    public static class LinkBuilder {
+        private Tree tree;
+        private Person person1;
+        private Person person2;
+        private Relationship relationship;
+        private Role person1Role;
+        private Role person2Role;
+
+        public LinkBuilder(Tree tree, Person person) {
+            this.tree = tree;
+            this.person1 = person;
+        }
+
+        public LinkBuilder isParentOf(Person person) {
+            this.person2 = person;
+            this.relationship = relationshipRepository.findOne(2);
+            this.person1Role = roleRepository.findOne()
+        }
     }
 }

@@ -14,6 +14,10 @@ public class Relationship {
 
     public Relationship() {}
 
+    public Relationship(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }
