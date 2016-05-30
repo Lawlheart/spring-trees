@@ -38,7 +38,7 @@ public class TreeController {
         return "tree";
     }
 
-    @RequestMapping(value = "/data/trees/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/data/trees/{id}", method = RequestMethod.GET, headers = {"Accept=application/json", "Access-Control-Allow-Origin:*"})
     public @ResponseBody Tree treeJson(@PathVariable int id, ModelMap modelMap) {
         return treeRepository.findOne(id);
     }
