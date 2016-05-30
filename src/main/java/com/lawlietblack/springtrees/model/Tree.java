@@ -1,5 +1,9 @@
 package com.lawlietblack.springtrees.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +17,11 @@ public class Tree {
     private String name;
 
     @OneToMany
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Person> people = new ArrayList<>();
 
     @OneToMany
-    @JoinTable(name = "tree_links")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Link> links = new ArrayList<>();
 
     public Tree() {}
