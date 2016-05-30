@@ -31,11 +31,11 @@ public class TreeLoader implements ApplicationListener<ContextRefreshedEvent> {
         simpsons.setCreatorId(1337);
 
         // Add People
-        Person homer = new Person.PersonBuilder("Homer Simpson").withGender("Male").build();
         Person marge = new Person.PersonBuilder("Marge Simpson").withGender("Female").build();
-        Person bart = new Person.PersonBuilder("Bart Simpson").withGender("Male").build();
+        Person homer = new Person.PersonBuilder("Homer Simpson").withGender("Male").build();
         Person lisa = new Person.PersonBuilder("Lisa Simpson").withGender("Female").build();
         Person maggie = new Person.PersonBuilder("Maggie Simpson").withGender("Female").build();
+        Person bart = new Person.PersonBuilder("Bart Simpson").withGender("Male").build();
 
         homer.addMarriage(marge);
         homer.addChild(bart);
@@ -47,10 +47,10 @@ public class TreeLoader implements ApplicationListener<ContextRefreshedEvent> {
         marge.addChild(lisa);
         marge.addChild(maggie);
 
+
+
+        // Create and Save
         simpsons.setPeople(Arrays.asList(homer, marge, bart, lisa, maggie));
-
-
-        // Save to DB
         personRepository.save(Arrays.asList(homer, marge, bart, lisa, maggie));
         treeRepository.save(simpsons);
 
@@ -63,11 +63,19 @@ public class TreeLoader implements ApplicationListener<ContextRefreshedEvent> {
         Person ned = new Person.PersonBuilder("Ned Flanders").withGender("Male").build();
         Person rodd = new Person.PersonBuilder("Rodd Flanders").withGender("Male").build();
         Person todd = new Person.PersonBuilder("Todd Flanders").withGender("Male").build();
-        flanders.setPeople(Arrays.asList(ned, rodd, todd));
+        Person maude = new Person.PersonBuilder("Maude Flanders").withGender("Female").build();
 
+        ned.addMarriage(maude);
+        ned.addChild(rodd);
+        ned.addChild(todd);
 
-        // Save to DB
-        personRepository.save(Arrays.asList(ned, rodd, todd));
+        maude.addMarriage(ned);
+        maude.addChild(rodd);
+        maude.addChild(todd);
+
+        // Create and Save
+        flanders.setPeople(Arrays.asList(ned, rodd, todd, maude));
+        personRepository.save(Arrays.asList(ned, rodd, todd, maude));
         treeRepository.save(flanders);
     }
 }
