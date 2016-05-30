@@ -26,8 +26,7 @@ public class PersonRepositoryTest {
     public void testSavePeople() {
         // setup Person
         Person person = new Person();
-        person.setFirstName("Homer");
-        person.setLastName("Simpson");
+        person.setName("Homer Simpson");
         person.setGender("Male");
 
         // Test save Person (CREATE)
@@ -39,13 +38,13 @@ public class PersonRepositoryTest {
         Person fetch = personRepository.findOne(person.getId());
         assertNotNull(fetch);
         assertEquals(person.getId(), fetch.getId());
-        assertEquals(person.getFirstName(), person.getFirstName());
+        assertEquals(person.getName(), person.getName());
 
         // Test update Person (UPDATE)
-        fetch.setFirstName("Bart");
+        fetch.setName("Bart");
         personRepository.save(fetch);
         Person updatedFetch = personRepository.findOne(fetch.getId());
-        assertEquals(fetch.getFirstName(), updatedFetch.getFirstName());
+        assertEquals(fetch.getName(), updatedFetch.getName());
 
         // Test no duplication
         long personCount = personRepository.count();

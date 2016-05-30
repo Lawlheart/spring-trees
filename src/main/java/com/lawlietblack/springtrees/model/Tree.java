@@ -17,28 +17,21 @@ public class Tree {
     private String name;
 
     @OneToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Person> people = new ArrayList<>();
-
-    @OneToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    private List<Link> links = new ArrayList<>();
 
     public Tree() {}
 
-    public Tree(Integer id, Integer creatorId, String name, List<Person> people, List<Link> links) {
+    public Tree(Integer id, Integer creatorId, String name, List<Person> people) {
         this.id = id;
         this.creatorId = creatorId;
         this.name = name;
         this.people = people;
-        this.links = links;
     }
 
     public Tree(TreeBuilder builder) {
         this.creatorId = 1337;
         this.name = builder.name;
         this.people = builder.people;
-        this.links = builder.links;
     }
 
     @Override
@@ -48,7 +41,6 @@ public class Tree {
                 ", creatorId=" + creatorId +
                 ", name='" + name + '\'' +
                 ", people=" + people +
-                ", links=" + links +
                 '}';
     }
 
@@ -84,17 +76,6 @@ public class Tree {
         this.people = people;
     }
 
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
-    }
-
-    public void addLink(Link link) {
-        this.links.add(link);
-    }
     public void addPerson(Person person) {
         this.people.add(person);
     }
@@ -102,7 +83,6 @@ public class Tree {
     public static class TreeBuilder {
         private String name;
         private List<Person> people = new ArrayList<>();
-        private List<Link> links = new ArrayList<>();
 
         public TreeBuilder(String name) {
             this.name = name;
@@ -113,10 +93,6 @@ public class Tree {
             return this;
         }
 
-        public TreeBuilder addLink(Link link) {
-            this.links.add(link);
-            return this;
-        }
         public Tree build() {
             return new Tree(this);
         }

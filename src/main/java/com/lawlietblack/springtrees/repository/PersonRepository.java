@@ -8,5 +8,5 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "people", path = "people")
 public interface PersonRepository extends CrudRepository<Person, Integer> {
-    List<Person> findByLastName(String lastName);
+
 }
