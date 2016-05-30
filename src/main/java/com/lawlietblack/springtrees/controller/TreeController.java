@@ -6,15 +6,13 @@ import com.lawlietblack.springtrees.repository.TreeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 public class TreeController {
     private static List<Tree> allTrees = new ArrayList<>();
 
@@ -38,7 +36,7 @@ public class TreeController {
         return "tree";
     }
 
-    @RequestMapping(value = "/data/trees/{id}", method = RequestMethod.GET, headers = {"Accept=application/json", "Access-Control-Allow-Origin:*"})
+    @RequestMapping(value = "/data/trees/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
     public @ResponseBody Tree treeJson(@PathVariable int id, ModelMap modelMap) {
         return treeRepository.findOne(id);
     }
