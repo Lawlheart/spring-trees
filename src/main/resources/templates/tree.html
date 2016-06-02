@@ -21,11 +21,9 @@
                 <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/create}">New Tree</a></li>
                 </ul>
                 <ul id="mobile-nav" class="side-nav">
                     <li class="active"><a th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/create}">New Tree</a></li>
                 </ul>
             </div>
         </nav>
@@ -52,7 +50,27 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" id="add-person-submit" class="modal-action modal-close waves-effect waves-green btn-flat add-confirm">Add</a>
+            <a href="#!" id="add-marriage-submit" class="modal-action modal-close waves-effect waves-green btn-flat add-confirm">Add</a>
+        </div>
+    </div>
+
+    <div id="addChildModal" class="modal">
+        <div class="modal-content">
+            <h5>Child of to <span id="first-parent"></span> and <span id="second-parent"></span></h5>
+            <div class="input-field">
+                <input id="childName" type="text" name="childName"/>
+                <label for="childName">Child Name</label>
+            </div>
+            <div class="input-field">
+                <select name="childGender" id="childGender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <label for="spouseGender">Child Gender</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="add-child-submit" class="modal-action modal-close waves-effect waves-green btn-flat add-confirm">Add</a>
         </div>
     </div>
     <script th:src="@{/vendor/jquery/jquery.js}"></script>
