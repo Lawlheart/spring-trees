@@ -36,32 +36,23 @@
         <div id="graph"></div>
     </main>
 
-    <div id="addPersonModal" class="modal">
+    <div id="addMarriageModal" class="modal">
         <div class="modal-content">
-            <h4>Add person</h4>
-            <h5>Related to <span id="related-person"></span></h5>
+            <h5>Married to <span id="related-person"></span></h5>
             <div class="input-field">
-                <input id="name" type="text" name="name"/>
-                <label for="name">Relative Name</label>
+                <input id="spouseName" type="text" name="spouseName"/>
+                <label for="spouseName">Spouse Name</label>
             </div>
             <div class="input-field">
-                <select name="gender" id="gender">
+                <select name="spouseGender" id="spouseGender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+                <label for="spouseGender">Spouse Gender</label>
             </div>
-            <label for="gender">Gender</label>
-            <div class="input-field">
-                <select id="type" name="type">
-                    <option value="married">Marriage</option>
-                    <option value="parent">Parent</option>
-                    <option value="child">Child</option>
-                </select>
-            </div>
-            <label for="type">Relation Type</label>
         </div>
         <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat add-confirm">Add</a>
+            <a href="#!" id="add-person-submit" class="modal-action modal-close waves-effect waves-green btn-flat add-confirm">Add</a>
         </div>
     </div>
     <script th:src="@{/vendor/jquery/jquery.js}"></script>

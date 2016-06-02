@@ -21,16 +21,13 @@
                 <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/create}">New Tree</a></li>
                 </ul>
                 <ul id="mobile-nav" class="side-nav">
                     <li class="active"><a th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/create}">New Tree</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <pre th:text="${trees}"></pre>
     <div class="trees row">
         <div class="col s12 m6 l4 tree" th:each="tree : ${trees}">
             <a th:href="@{'/display/' + ${tree.id}}">
@@ -41,6 +38,37 @@
                 </div>
             </a>
         </div>
+        <div class="col s12 m3 l2 tree">
+            <button id="new-tree-btn" data-target="newTreeModal" class="btn modal-trigger">Create New Tree</button>
+        </div>
     </div>
+
+    <div id="newTreeModal" class="modal">
+        <div class="modal-content">
+            <h4>Create New Tree</h4>
+            <div class="input-field">
+                <input id="treeName" type="text" name="treeName"/>
+                <label for="treeName">Tree Name</label>
+            </div>
+            <div class="input-field">
+                <input id="name" type="text" name="name"/>
+                <label for="name">Ancestor Name</label>
+            </div>
+            <div class="input-field">
+                <select name="gender" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <label for="gender">Ancestor Gender</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="new-tree-submit" class="modal-action modal-close waves-effect waves-green btn-flat add-confirm">Create</a>
+        </div>
+    </div>
+    <script th:src="@{/vendor/jquery/jquery.js}"></script>
+    <script th:src="@{/vendor/lodash/lodash.js}"></script>
+    <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
+    <script th:src="@{/js/home.js}"></script>
 </body>
 </html>

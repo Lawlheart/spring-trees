@@ -16,5 +16,6 @@
         <!-- Names the annotated entity classes -->
         <mapping class="com.lawlietblack.springtrees.model.Tree"/>
         <mapping class="com.lawlietblack.springtrees.model.Person"/>
+        <mapping class="com.lawlietblack.springtrees.model.Marriage"/>
     </session-factory>
 </hibernate-configuration>

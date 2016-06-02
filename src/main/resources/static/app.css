@@ -29,7 +29,7 @@
     border-radius: 2px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
-.add-person {
+.add-marriage {
     display:none;
     float: right;
     border: none;
@@ -46,4 +46,23 @@
 .data {
     height: 0;
     width: 0;
+}
+
+#new-tree-btn {
+    height: 140px;
+    width: 140px;
+    margin: 20px;
+}
+
+.tooltip {
+    display:none;
+    width: 100px;
+    padding: 3px;
+    border-radius: 2px;
+    background-color: rgba(0,0,0,0.5);
+    float: right;
+    margin-top: -40px;
+    margin-right: -120px;
+    font-size: 14px;
+
 }

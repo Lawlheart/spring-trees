@@ -23,10 +23,10 @@ repositories {
 }
 
 // Uncomment/comment to toggle new relic
-springBoot {
-    mainClass = 'com.lawlietblack.springtrees.AppConfig'
-    agent = file('/opt/newrelic/newrelic.jar')
-}
+//springBoot {
+//    mainClass = 'com.lawlietblack.springtrees.AppConfig'
+//    agent = file('/opt/newrelic/newrelic.jar')
+//}
 
 bootRun {
     addResources = true

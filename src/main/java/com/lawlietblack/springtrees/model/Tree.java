@@ -16,15 +16,19 @@ public class Tree {
     private Integer creatorId;
     private String name;
 
-    @OneToMany
+    @OneToOne(cascade=CascadeType.ALL)
+    private Person first;
+
+    @OneToMany(cascade=CascadeType.ALL)
     private List<Person> people = new ArrayList<>();
 
     public Tree() {}
 
-    public Tree(Integer id, Integer creatorId, String name, List<Person> people) {
+    public Tree(Integer id, Integer creatorId, String name, Person first, List<Person> people) {
         this.id = id;
         this.creatorId = creatorId;
         this.name = name;
+        this.first = first;
         this.people = people;
     }
 
@@ -32,6 +36,7 @@ public class Tree {
         this.creatorId = 1337;
         this.name = builder.name;
         this.people = builder.people;
+        this.first = builder.first;
     }
 
     @Override
@@ -40,6 +45,7 @@ public class Tree {
                 "id=" + id +
                 ", creatorId=" + creatorId +
                 ", name='" + name + '\'' +
+                ", first=" + first +
                 ", people=" + people +
                 '}';
     }
@@ -68,6 +74,14 @@ public class Tree {
         this.name = name;
     }
 
+    public Person getFirst() {
+        return first;
+    }
+
+    public void setFirst(Person first) {
+        this.first = first;
+    }
+
     public List<Person> getPeople() {
         return people;
     }
@@ -82,10 +96,17 @@ public class Tree {
 
     public static class TreeBuilder {
         private String name;
+        private String creatorId;
         private List<Person> people = new ArrayList<>();
+        public Person first;
 
-        public TreeBuilder(String name) {
+        public TreeBuilder(String name, Person first) {
             this.name = name;
+            this.first = first;
+        }
+        public TreeBuilder addCreatorId(String creatorId) {
+            this.creatorId = creatorId;
+            return this;
         }
 
         public TreeBuilder addPerson(Person person) {

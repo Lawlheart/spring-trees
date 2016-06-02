@@ -11,20 +11,13 @@ import java.util.List;
 @Entity
 public class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String gender;
 
-    @ManyToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
-    private List<Person> marriages;
-
-    @ManyToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
-    private List<Person> children;
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Marriage> marriages;
 
     public Person() {}
 
@@ -32,15 +25,15 @@ public class Person {
         this.name = builder.name;
         this.gender = builder.gender;
         this.marriages = builder.marriages;
-        this.children = builder.children;
     }
 
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", firstName='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
+                ", marriages=" + marriages +
                 '}';
     }
 
@@ -68,34 +61,22 @@ public class Person {
         this.gender = gender;
     }
 
-    public List<Person> getMarriages() {
+    public List<Marriage> getMarriages() {
         return marriages;
     }
 
-    public void setMarriages(List<Person> marriages) {
+    public void setMarriages(List<Marriage> marriages) {
         this.marriages = marriages;
     }
 
-    public List<Person> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<Person> children) {
-        this.children = children;
-    }
-
-    public void addMarriage(Person marriage) {
+    public void addMarriage(Marriage marriage) {
         this.marriages.add(marriage);
-    }
-    public void addChild(Person child) {
-        this.children.add(child);
     }
 
     public static class PersonBuilder {
         private String name;
         private String gender;
-        private List<Person> marriages = new ArrayList<>();
-        private List<Person> children = new ArrayList<>();
+        private List<Marriage> marriages = new ArrayList<>();
 
         public PersonBuilder(String name) {
             this.name = name;
@@ -106,13 +87,8 @@ public class Person {
             return this;
         }
 
-        public PersonBuilder marriedTo(Person person) {
-            this.marriages.add(person);
-            return this;
-        }
-
-        public PersonBuilder withChild(Person person) {
-            this.children.add(person);
+        public PersonBuilder withMarriage(Marriage marriage) {
+            this.marriages.add(marriage);
             return this;
         }
 
