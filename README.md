@@ -7,8 +7,12 @@ Web App for creating and sharing genealogical trees.
 
 - How to use Plain Old Java Objects to model data
 - How to use Java annotations
+- How to configure a Hibernate h2 database
 - How to render java data using thymeleaf
 - How to create dynamic routing with Spring
+- How to get a Java project on Heroku
+- How to set up Java with New Relic
+- How to manage project dependencies with Gradle 
 
 ##### Skills used 
 
@@ -20,12 +24,10 @@ Web App for creating and sharing genealogical trees.
 - Thymeleaf
 - IntelliJ IDE
 
-##### User Stories (In Progress)
+##### User Stories
 
-- As an unauthenticated user, I can see a list of all of the trees
-- As an unauthenticated user, I can view each tree on it's own page
-- As a user, I can sign in
-- As a user, I can sign in with my social media account
-- As an authenticated user, I can create a new tree
-- As an authenticated user, I can add people to my trees
-- As an authenticated user, I can save my trees.
+- As a user, I can see a list of all of the trees
+- As a user, I can view each tree on it's own page
+- As a user, I can create a new tree
+- As a user, I can add people to my trees
+- As a user, I can save my trees.
