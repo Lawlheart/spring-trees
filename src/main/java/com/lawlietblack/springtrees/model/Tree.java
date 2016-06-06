@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "trees")
 public class Tree {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
