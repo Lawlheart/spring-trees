@@ -12,12 +12,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
 public class PersonRepositoryTest {
     private PersonRepository personRepository;
 
-    @Autowired
+//    @Autowired
     public void setPersonRepository(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }

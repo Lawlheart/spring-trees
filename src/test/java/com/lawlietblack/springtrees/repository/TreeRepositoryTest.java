@@ -12,12 +12,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
 public class TreeRepositoryTest {
     private TreeRepository treeRepository;
 
-    @Autowired
+//    @Autowired
     public void setTreeRepository(TreeRepository treeRepository) {
         this.treeRepository = treeRepository;
     }
