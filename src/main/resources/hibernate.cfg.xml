@@ -1,16 +1,19 @@
 <hibernate-configuration>
     <session-factory>
-        <!-- Database Connection Settings -->
-        <!--<property name="connection.driver_class">org.h2.Driver</property>-->
-        <!--<property name="connection.url">jdbc:h2:./data/contactmgr</property>-->
+        <!--&lt;!&ndash; Database Connection Settings &ndash;&gt;-->
+        <!--<property name="connection.driver_class">org.postgresql.Driver</property>-->
+        <!--<property name="connection.url">jdbc:postgresql://ec2-54-163-245-3.compute-1.amazonaws.com:5432/dbjmincdcha8an</property>-->
+        <!--<property name="hibernate.connection.username">uorxfojqdrfkpk</property>-->
+        <!--<property name="hibernate.connection.password">y5LSbU8IxqjWA-4jF6wlrcxcq4</property>-->
 
-        <!-- SQL Dialect -->
-        <!--<property name="dialect">org.hibernate.dialect.H2Dialect</property>-->
 
-        <!-- Create the database schema on startup -->
-        <!--<property name="hbm2ddl.auto">create</property>-->
+        <!--&lt;!&ndash; SQL Dialect &ndash;&gt;-->
+        <!--<property name="dialect">org.hibernate.dialect.PostgreSQL92Dialect</property>-->
 
-        <!-- Show the queries prepared by hibernate -->
+        <!--&lt;!&ndash; Create the database schema on startup &ndash;&gt;-->
+        <!--<property name="hbm2ddl.auto">update</property>-->
+
+        <!--&lt;!&ndash; Show the queries prepared by hibernate &ndash;&gt;-->
         <!--<property name="show_sql">true</property>-->
 
         <!-- Names the annotated entity classes -->

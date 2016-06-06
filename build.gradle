@@ -22,15 +22,10 @@ repositories {
     mavenCentral()
 }
 
-// Uncomment/comment to toggle new relic
-//springBoot {
-//    mainClass = 'com.lawlietblack.springtrees.AppConfig'
-//   agent = file('/opt/newrelic/newrelic.jar')
-//}
-
 bootRun {
     addResources = true
 }
+
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -39,6 +34,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-devtools'
-    compile 'com.h2database:h2:1.4.191'
+    compile 'org.postgresql:postgresql:9.4-1206-jdbc42'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
